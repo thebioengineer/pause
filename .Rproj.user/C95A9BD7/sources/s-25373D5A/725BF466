@@ -1,0 +1,22 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1559098019646.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "725BF466",
+    "lastKnownWriteTime" : 1559101146,
+    "last_content_update" : 1559101146935,
+    "path" : "~/Projects/pause/tests/testthat/test-play.R",
+    "project_path" : "tests/testthat/test-play.R",
+    "properties" : {
+        "cursorPosition" : "36,7",
+        "scrollLine" : "24"
+    },
+    "relative_order" : 5,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

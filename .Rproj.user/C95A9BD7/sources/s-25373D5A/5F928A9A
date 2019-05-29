@@ -1,0 +1,23 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1557894174612.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "199568159",
+    "id" : "5F928A9A",
+    "lastKnownWriteTime" : 1559101219,
+    "last_content_update" : 1559101219268,
+    "path" : "~/Projects/pause/R/pause.R",
+    "project_path" : "R/pause.R",
+    "properties" : {
+        "cursorPosition" : "30,0",
+        "scrollLine" : "9",
+        "tempName" : "Untitled2"
+    },
+    "relative_order" : 3,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}
