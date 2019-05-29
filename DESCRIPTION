@@ -1,15 +1,22 @@
 Package: pause
 Type: Package
-Title: What the Package Does (Title Case)
+Title: Pause and Restart evaluation of pipes
 Version: 0.1.0
-Author: Who wrote it
-Maintainer: The package maintainer <yourself@somewhere.net>
-Description: More about what it does (maybe more than one line)
-    Use four spaces when indenting paragraphs within the Description.
-License: What license is it under?
+Authors@R: 
+    c(
+      person(
+        given = "Ellis", 
+        family = "Hughes", 
+        email = "ellishughes@live.com", 
+        role = c("aut", "cre")
+      ))
+Description: This package provides functions for starting and stopping the evaluations of pipes.
+   This allows for creating "temporary" variables inside a pipe.
+License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
 Suggests: 
     testthat,
-    covr
+    covr,
+    dplyr
 RoxygenNote: 6.1.1

@@ -18,7 +18,7 @@ multiple dataset inputs but you would like to stop the evaluation temporarily so
 the second dataset(or the same one more)
 }
 \details{
-The pause pipe works like \code{\link{\%>\%}}, except the
+The pause pipe works like\code{\link[magrittr]{\%>\%}}, except the
 return value is `rhs` itself, and not the result of `lhs` function/expression.
 }
 \seealso{

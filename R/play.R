@@ -6,19 +6,17 @@
 #' @param lhs A value or the magrittr placeholder.
 #' @param rhs A function call using the magrittr semantics.
 #'
-#' @details The pause pipe works like \code{\link{\%>\%}}, except the
+#' @details The pause pipe works like \code{\link[magrittr]{\%>\%}}, except the
 #' return value is `rhs` as the second argument of the priorly paused evaluation
 #' #'
 #' @seealso \code{\link{\%>\%}}, \code{\link{\%||\%}}
-#'
-#' @import magrittr
 #'
 #' @rdname play
 #' @export
 `%>>>%`<-function(lhs,rhs){
   parent <- parent.frame()
   env <- new.env(parent = parent)
-  chain_parts <- magrittr:::split_chain(match.call(), env = env)
+  chain_parts <- split_chain(match.call(), env = env)
 
   fastforward<-as.call(call("fforward",chain_parts$lhs$lhs,chain_parts$lhs$rhs,envir=parent))
 

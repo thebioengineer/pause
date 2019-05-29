@@ -15,7 +15,7 @@ lhs \%>>>\% rhs
 Pipe a function - or call expression and runs the priorly paused evaluation
 }
 \details{
-The pause pipe works like \code{\link{\%>\%}}, except the
+The pause pipe works like \code{\link[magrittr]{\%>\%}}, except the
 return value is `rhs` as the second argument of the priorly paused evaluation
 #'
 }

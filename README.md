@@ -1,8 +1,6 @@
 # pause
 
-The goal of pause is to fascilitate the processing of your data while maintaining the 'tidy' pipeing structure. By using the "pause" pipe, `%||%`, you stop the evaluation of a pipe and can start performing the next pipe. This keeps you from having to either create a temporary variable, or pipe-within-a-pipe.
-
-
+The goal of pause is to fascilitate the processing of your data while maintaining the 'tidy' pipeing structure. By using the "pause" pipe, `%||%`, you stop the evaluation of a pipe and can start performing the next pipe. This keeps you from having to either create a temporary variable, or pipe-within-a-pipe. You then "fastforward" into a function that would have been taking the temporary variable with `%>>>%`. This keeps everying inline with your pipe.
 
 [![Travis build status](https://travis-ci.org/thebioengineer/pause.svg?branch=master)](https://travis-ci.org/thebioengineer/pause)
 [![AppVeyor build status](https://ci.appveyor.com/api/projects/status/github/thebioengineer/pause?branch=master&svg=true)](https://ci.appveyor.com/project/thebioengineer/pause)
