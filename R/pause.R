@@ -12,13 +12,13 @@
 #' @details The pause pipe works like\code{\link[magrittr]{\%>\%}}, except the
 #' return value is `rhs` itself, and not the result of `lhs` function/expression.
 #'
-#' @seealso \code{\link{\%>\%}}, \code{\link{\%>>>\%}}
+#' @seealso \code{\link{\%>>>\%}}
 #'
 #'
 #' @rdname pause
 #' @export
 
-`%||%` <- function (lhs, rhs) {
+`%//%` <- function (lhs, rhs) {
   parent <- parent.frame()
   env <- new.env(parent = parent)
   chain_parts <- split_chain(match.call(), env = env)

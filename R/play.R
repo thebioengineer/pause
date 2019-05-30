@@ -9,7 +9,7 @@
 #' @details The pause pipe works like \code{\link[magrittr]{\%>\%}}, except the
 #' return value is `rhs` as the second argument of the priorly paused evaluation
 #' #'
-#' @seealso \code{\link{\%>\%}}, \code{\link{\%||\%}}
+#' @seealso \code{\link{\%//\%}}
 #'
 #' @rdname play
 #' @export

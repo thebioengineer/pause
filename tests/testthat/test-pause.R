@@ -15,7 +15,7 @@ test_that("test pausing writes the evaluation to the temp env", {
 
   left_join_test2 <- df %>%
     mutate(vowel=LETTERS%in%c("A","E","I","O","U","Y")) %>%
-    filter(y>.5) %||%
+    filter(y>.5) %//%
     df2
 
 

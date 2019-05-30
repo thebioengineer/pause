@@ -20,5 +20,5 @@ return value is `rhs` as the second argument of the priorly paused evaluation
 #'
 }
 \seealso{
-\code{\link{\%>\%}}, \code{\link{\%||\%}}
+\code{\link{\%//\%}}
 }

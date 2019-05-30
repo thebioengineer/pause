@@ -20,7 +20,7 @@ test_that("Pausing and play works with new", {
 
   cor_test2 <- df %>%
     filter(x%in%c("A","E","I","O","U","Y")) %>%
-    pull(y) %||%
+    pull(y) %//%
       df %>%
       filter(x%in%c("A","E","I","O","U","Y")) %>%
       mutate(z=as.numeric(as.factor(z))) %>%
@@ -29,7 +29,7 @@ test_that("Pausing and play works with new", {
 
   cor_test3 <- df %>%
     filter(x%in%c("A","E","I","O","U","Y")) %>%
-    pull(y) %||%
+    pull(y) %//%
       df %>%
       filter(x%in%c("A","E","I","O","U","Y")) %>%
       mutate(z=as.numeric(as.factor(z))) %>%
@@ -64,7 +64,7 @@ test_that("Play works with more pipes", {
 
   left_join_test2 <- df %>%
     mutate(vowel=LETTERS%in%c("A","E","I","O","U","Y")) %>%
-    filter(y>.5) %||%
+    filter(y>.5) %//%
       df2 %>%
       filter(w==1) %>>>%
     left_join(by="x") %>%
