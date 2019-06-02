@@ -28,10 +28,23 @@ df2<-data.frame(x=LETTERS,w=sample(c(1,2),size = 26,replace = TRUE))
 df %>%
   mutate(vowel=LETTERS%in%c("A","E","I","O","U","Y")) %>%
   filter(y>.5) %//%
-    df2 %>%
-    filter(w==1) %>>>%
+df2 %>%
+  filter(w==1) %>>>%
   left_join(by="x") %>%
   filter(!is.na(w))
 
 ```
+This is exactly the same result if you were to do the following in standard pipe operations.
 
+``` r
+
+tempdf2<-df2 %>% 
+  filter(w==1)
+
+df %>%
+  mutate(vowel=LETTERS%in%c("A","E","I","O","U","Y")) %>%
+  filter(y>.5) %>% 
+  left_join(tempdf2,by="x") %>%
+  filter(!is.na(w))
+  
+```

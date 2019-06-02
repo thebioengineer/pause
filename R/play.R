@@ -16,9 +16,9 @@
 `%>>>%`<-function(lhs,rhs){
   parent <- parent.frame()
   env <- new.env(parent = parent)
-  chain_parts <- split_chain(match.call(), env = env)
+  chain_parts <- match.call()
 
-  fastforward<-as.call(call("fforward",chain_parts$lhs$lhs,chain_parts$lhs$rhs,envir=parent))
+  fastforward<-as.call(call("fforward",chain_parts$lhs,chain_parts$rhs,envir=parent))
 
   return(eval(fastforward, parent, parent))
 }

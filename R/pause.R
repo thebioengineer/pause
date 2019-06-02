@@ -21,11 +21,11 @@
 `%//%` <- function (lhs, rhs) {
   parent <- parent.frame()
   env <- new.env(parent = parent)
-  chain_parts <- split_chain(match.call(), env = env)
+  chain_parts <- match.call()
 
-  tmp_lhs<-chain_parts[["lhs"]]$lhs
-  tmp_rhs<-chain_parts[["lhs"]]$rhs
-  assigndelayedeval(chain_parts[["lhs"]]$lhs)
+  tmp_lhs<-chain_parts$lhs
+  tmp_rhs<-chain_parts$rhs
+  assigndelayedeval(chain_parts$lhs)
 
   return(eval(tmp_rhs,parent,parent))
 }
