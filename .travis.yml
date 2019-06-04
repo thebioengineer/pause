@@ -7,7 +7,6 @@ cache: packages
 
 jobs:
   include:
-  - r: 3.1
   - r: 3.2
   - r: 3.3
   - stage: full
