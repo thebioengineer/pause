@@ -21,7 +21,7 @@ cleardelayedeval<-function(){
 }
 
 is_function <- function(expression) {
-  if (length(expression) > 1 & !is.symbol(expr)) {
+  if (length(expression) > 1 & !is.symbol(expression)) {
     eval(call("class", expression[[1]])) == "function"
   } else{
     FALSE

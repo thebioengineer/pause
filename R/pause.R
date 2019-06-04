@@ -13,6 +13,8 @@
 #'
 #' @seealso \code{\link{\%>>>\%}}
 #'
+#' @importFrom magrittr %>%
+#'
 #' @rdname pause
 #' @export
 

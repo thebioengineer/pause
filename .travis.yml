@@ -4,14 +4,19 @@ language: R
 sudo: false
 cache: packages
 
+
 jobs:
   include:
-  - r: devel
+  - r: 3.1
+  - r: 3.2
+  - r: 3.3
   - stage: full
     os: osx
+  - r: oldrel
   - r: release
     after_success:
     - Rscript -e 'covr::codecov()'
+  - r: devel
 
 matrix:
   fast_finish: true
