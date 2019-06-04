@@ -72,3 +72,39 @@ test_that("Play works with more pipes", {
 
   testthat::expect_equivalent(left_join_test2,left_join_test)
 })
+
+test_that("Play works with multiple pauses pausing works multiple times", {
+
+  set.seed(42)
+  cleardelayedeval()
+
+  df<-data.frame(x=LETTERS,
+                 y=runif(26),
+                 z=sample(letters,26,replace = TRUE),
+                 stringsAsFactors = FALSE)
+
+  df2<-data.frame(x=LETTERS[1:10],
+                  y=runif(20),
+                  z=sample(letters,10,replace = TRUE),
+                  stringsAsFactors = FALSE)
+
+  temp1 <- df %>%
+    mutate(vowel = LETTERS %in% c("A", "E", "I", "O", "U", "Y")) %>%
+    filter(y > .5)
+  temp2 <- temp1 %>%
+    filter(y > .75)
+  temp3 <- df2 %>%
+    filter(y>.5)
+  testOutput<-bind_rows(temp1,temp2,temp3)
+
+  output<-df %>%
+    mutate(vowel=LETTERS%in%c("A","E","I","O","U","Y")) %>%
+    filter(y>.5) %//%
+    filter(y>.75) %//%
+    df2 %>%
+    filter(y>.5) %>>>%
+    bind_rows()
+
+  testthat::expect_equal(output,testOutput)
+
+})

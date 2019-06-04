@@ -1,4 +1,3 @@
-
 #' Pause pipe
 #'
 #' Pipe a function - or call expression and pauses the evaluation until it is
@@ -14,7 +13,6 @@
 #'
 #' @seealso \code{\link{\%>>>\%}}
 #'
-#'
 #' @rdname pause
 #' @export
 
@@ -23,10 +21,15 @@
   env <- new.env(parent = parent)
   chain_parts <- match.call()
 
-  tmp_lhs<-chain_parts$lhs
-  tmp_rhs<-chain_parts$rhs
-  assigndelayedeval(chain_parts$lhs)
+  tmp_lhs <- chain_parts$lhs
+  tmp_rhs <- chain_parts$rhs
 
-  return(eval(tmp_rhs,parent,parent))
+  assigndelayedeval(tmp_lhs,parent)
+
+  if (is_function(tmp_rhs)) {
+    tmp_rhs <- as.call(c(quote(`%>%`), tmp_lhs, tmp_rhs))
+  }
+  return(eval(tmp_rhs, parent, parent))
+  # return(chain_parts)
 }
 
