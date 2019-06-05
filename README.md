@@ -49,4 +49,32 @@ df %>%
   
 ```
 
+This also allows you to pipe together multiple pauses, and each is considered a separate pause. The only time this is not true is when a pause starts with a function, in which case it is assumed the output of the prior pause is fed into this function as if it were a standard pipe.
+
+``` r
+
+# this pause:
+
+df %>%
+    mutate(vowel=LETTERS%in%c("A","E","I","O","U","Y")) %>%
+    filter(y>.5) %//%
+    filter(y>.75) %//%
+    df2 %>%
+    filter(y>.5) %>>>%
+    bind_rows(.x1,.x2,.x3)
+    
+# is equivalent to:
+
+
+temp1 <- df %>%
+    mutate(vowel = LETTERS %in% c("A", "E", "I", "O", "U", "Y")) %>%
+    filter(y > .5)
+temp2 <- temp1 %>%
+    filter(y > .75)
+temp3 <- df2 %>%
+    filter(y>.5)
+    
+testOutput<-bind_rows(temp1,temp2,temp3)
+```
+
 Please note that the 'pause' project is released with a [Contributor Code of Conduct](CODE_OF_CONDUCT.md). By contributing to this project, you agree to abide by its terms.

@@ -36,8 +36,29 @@ test_that("Pausing and play works with new", {
     pull(z) %>>>%
     cor
 
+  cor_test4 <- df %>%
+    filter(x%in%c("A","E","I","O","U","Y")) %>%
+    pull(y) %//%
+    df %>%
+    filter(x%in%c("A","E","I","O","U","Y")) %>%
+    mutate(z=as.numeric(as.factor(z))) %>%
+    pull(z) %>>>%
+    cor(.x1,.x2)
+
+  cor_test5 <- df %>%
+    filter(x%in%c("A","E","I","O","U","Y")) %>%
+    pull(y) %//%
+    df %>%
+    filter(x%in%c("A","E","I","O","U","Y")) %>%
+    mutate(z=as.numeric(as.factor(z))) %>%
+    pull(z) %>>>%
+    cor(.x2,.x1)
+
   testthat::expect_equivalent(cor_test2,cor_result)
   testthat::expect_equivalent(cor_test3,cor_result)
+  testthat::expect_equivalent(cor_test4,cor_result)
+  testthat::expect_equivalent(cor_test5,cor_result)
+
 
 })
 
@@ -105,6 +126,24 @@ test_that("Play works with multiple pauses pausing works multiple times", {
     filter(y>.5) %>>>%
     bind_rows()
 
-  testthat::expect_equal(output,testOutput)
+  output1<-df %>%
+    mutate(vowel=LETTERS%in%c("A","E","I","O","U","Y")) %>%
+    filter(y>.5) %//%
+    filter(y>.75) %//%
+    df2 %>%
+    filter(y>.5) %>>>%
+    bind_rows(.x1,.x2,.x3)
 
+  different_output<-df %>%
+    mutate(vowel=LETTERS%in%c("A","E","I","O","U","Y")) %>%
+    filter(y>.5) %//%
+    filter(y>.75) %//%
+    df2 %>%
+    filter(y>.5) %>>>%
+    bind_rows(.x1,.x3,.x2)
+
+  testthat::expect_equal(output,testOutput)
+  testthat::expect_equal(output1,testOutput)
+  testthat::expect_true(all(output==testOutput,na.rm = TRUE))
+  testthat::expect_false(all(different_output==testOutput,na.rm = TRUE))
 })
