@@ -21,6 +21,8 @@
   return(eval(fastforward, parent, parent))
 }
 
+
+#' @export
 fforward <- function(lhs, rhs, envir) {
   parent <- envir
   parent$vals <- eval(lhs, parent, parent)

@@ -9,7 +9,7 @@ lhs \%>>>\% rhs
 \arguments{
 \item{lhs}{A value or the magrittr placeholder.}
 
-\item{rhs}{A function call using the magrittr semantics.}
+\item{rhs}{A function call using the magrittr semantics. the output order of the delayed expression can be identified using the .x# notation.}
 }
 \description{
 Pipe a function - or call expression and runs the priorly paused evaluation
